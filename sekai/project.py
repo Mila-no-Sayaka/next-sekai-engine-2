@@ -10,8 +10,8 @@ from sekai.tutorial.mode import tutorial_mode
 from sekai.watch.mode import watch_mode
 
 engine = Engine(
-    name="next-sekai",
-    title="Next SEKAI",
+    name="tuned-sekai",
+    title="Tuned SEKAI",
     data=EngineData(
         ui=ui_config,
         options=Options,

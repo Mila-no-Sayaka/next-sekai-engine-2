@@ -346,8 +346,9 @@ class BaseNote(PlayArchetype):
         for touch in touches():
             if not self.check_touch_touch_is_eligible_for_flick(hitbox, touch):
                 continue
-            if not self.check_direction_matches(touch.angle):
-                continue
+            # ignore the direction check.
+            #if not self.check_direction_matches(touch.angle):
+            #    continue
             input_manager.disallow_empty(touch)
             self.judge(touch.time)
             return
@@ -389,7 +390,7 @@ class BaseNote(PlayArchetype):
             return
         hitbox = self.get_full_hitbox()
         has_touch = False
-        has_correct_direction_touch = False
+        has_correct_direction_touch = True
         for touch in touches():
             if not self.check_touch_is_eligible_for_trace(hitbox, touch):
                 continue
@@ -397,8 +398,9 @@ class BaseNote(PlayArchetype):
             if not self.check_touch_is_eligible_for_trace_flick(hitbox, touch):
                 continue
             has_touch = True
-            if self.check_direction_matches(touch.angle):
-                has_correct_direction_touch = True
+            # ignore the direction check.
+            #if self.check_direction_matches(touch.angle):
+            #    has_correct_direction_touch = True
         if not has_touch:
             return
         if offset_adjusted_time() >= self.target_time:
