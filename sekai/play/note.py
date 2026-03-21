@@ -514,18 +514,18 @@ class BaseNote(PlayArchetype):
         )
 
     def check_direction_matches(self, angle: float) -> bool:
-        leniency = pi / 2
+        leniency = (5 / 4) * pi
         match self.direction:
             case FlickDirection.UP_OMNI | FlickDirection.DOWN_OMNI:
                 return True
             case FlickDirection.UP_LEFT:
-                target_angle = pi / 2 + 1
+                target_angle = pi / 2 + (3/8) * pi
             case FlickDirection.UP_RIGHT:
-                target_angle = pi / 2 - 1
+                target_angle = pi / 2 - (3/8) * pi
             case FlickDirection.DOWN_LEFT:
-                target_angle = -pi / 2 - 1
+                target_angle = -pi / 2 - (3/8) * pi
             case FlickDirection.DOWN_RIGHT:
-                target_angle = -pi / 2 + 1
+                target_angle = -pi / 2 + (3/8) * pi
             case _:
                 assert_never(self.direction)
         angle_diff = abs((angle - target_angle + pi) % (2 * pi) - pi)
